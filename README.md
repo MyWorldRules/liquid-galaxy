@@ -10,11 +10,13 @@ For this process, we will use the below three code artifacts
 ## Initial Prerequisites
 We will start the installation process from the master node, logged in as user called lg and the below prerequisites have to be completed manually, to setup remote connectivity.
 
-  a. sudo apt-get install openssh-server in all nodes
-  b. ssh-keygen on the master node
-  c. ssh-copy-id user@machine for each node, from master, to enable login without password
-  d. add this line to /etc/sudoers file, for user(lg) to execute sudo without password
-lg    ALL=(ALL) NOPASSWD: ALL
+  a. ```sudo apt-get install openssh-server``` in all nodes
+  
+  b. ```ssh-keygen``` on the master node
+  
+  c. ```ssh-copy-id user@machine``` for each node, from master, to enable login without password
+  
+  d. add this line to /etc/sudoers file, for user(lg) to execute sudo without password ```lg ALL=(ALL) NOPASSWD: ALL```
 
 ## Configuration
 The configuration file(machine_list.dat) should be downloaded to the master computer, to its home directory and filled with below details - Machine IP address, machine_ID, lg_frame. This is the same format, as the example text already in said file. 
