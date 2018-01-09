@@ -9,7 +9,7 @@ For this process, we will use the below three code artifacts:
 
 + machine_list.dat is the config file - it took some time to figure this out, I had to look at few examples online. An alternative is to prompt for these details and ask the user to input.
 
-## Initial Prerequisites
+## Prerequisites
 We will start the installation process from the master node, logged in as a user called lg and the below prerequisites have to be completed manually, to setup remote connectivity. I don't know how to automate this, as connectivity between nodes should have been established before we start the install process. I had to read through examples from the internet and tested it out in my virtual machines.
 
   a. ```sudo apt-get install openssh-server``` in all nodes
