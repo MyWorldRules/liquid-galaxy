@@ -18,7 +18,7 @@ lg    ALL=(ALL) NOPASSWD: ALL
 
 The configuration file(machine_list.dat) should be downloaded to the master computer, to its home directory and filled with below details - Machine IP address, machine_ID, lg_frame. This is the same format, as the example text already in said file. 
 
-<aside class="notice">
+<aside class="warning">
 IMPORTANT: There should not be any empty lines, and the master machine should be the last line.
 </aside>
 
