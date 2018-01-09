@@ -194,42 +194,42 @@ sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME
 sudo chown $LOCAL_USER:$LOCAL_USER /home/lg/earth/builds/latest/drivers.ini
 
 # Configure SSH
-/*
-if [ $MASTER == true ]; then
-	echo "Setting up SSH..."
-	$HOME/tools/clean-ssh.sh
-else
-	echo "Starting SSH files sync with master..."
-	sshpass -p "$MASTER_PASSWORD" scp -o StrictHostKeyChecking=no $MASTER_IP:$MASTER_HOME/ssh-files.zip $HOME/
-	unzip $HOME/ssh-files.zip -d $HOME/ > /dev/null
-	sudo cp -r $HOME/ssh-files/etc/ssh /etc/
-	sudo cp -r $HOME/ssh-files/root/.ssh /root/ 2> /dev/null
-	sudo cp -r $HOME/ssh-files/user/.ssh $HOME/
-	sudo rm -r $HOME/ssh-files/
-	sudo rm $HOME/ssh-files.zip
-fi
-sudo chmod 0600 $HOME/.ssh/lg-id_rsa
-sudo chmod 0600 /root/.ssh/authorized_keys
-sudo chmod 0600 /etc/ssh/ssh_host_dsa_key
-sudo chmod 0600 /etc/ssh/ssh_host_ecdsa_key
-sudo chmod 0600 /etc/ssh/ssh_host_rsa_key
-sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME/.ssh
+
+#if [ $MASTER == true ]; then
+#	echo "Setting up SSH..."
+#	$HOME/tools/clean-ssh.sh
+#else
+#	echo "Starting SSH files sync with master..."
+#	sshpass -p "$MASTER_PASSWORD" scp -o StrictHostKeyChecking=no $MASTER_IP:$MASTER_HOME/ssh-files.zip $HOME/
+#	unzip $HOME/ssh-files.zip -d $HOME/ > /dev/null
+#	sudo cp -r $HOME/ssh-files/etc/ssh /etc/
+#	sudo cp -r $HOME/ssh-files/root/.ssh /root/ 2> /dev/null
+#	sudo cp -r $HOME/ssh-files/user/.ssh $HOME/
+#	sudo rm -r $HOME/ssh-files/
+#	sudo rm $HOME/ssh-files.zip
+#fi
+#sudo chmod 0600 $HOME/.ssh/lg-id_rsa
+#sudo chmod 0600 /root/.ssh/authorized_keys
+#sudo chmod 0600 /etc/ssh/ssh_host_dsa_key
+#sudo chmod 0600 /etc/ssh/ssh_host_ecdsa_key
+#sudo chmod 0600 /etc/ssh/ssh_host_rsa_key
+#sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME/.ssh
 
 # prepare SSH files for other nodes (slaves)
-if [ $MASTER == true ]; then
-	mkdir -p ssh-files/etc
-	sudo cp -r /etc/ssh ssh-files/etc/
-	mkdir -p ssh-files/root/
-	sudo cp -r /root/.ssh ssh-files/root/ 2> /dev/null
-	mkdir -p ssh-files/user/
-	sudo cp -r $HOME/.ssh ssh-files/user/
-	sudo zip -FSr "ssh-files.zip" ssh-files
-	if [ $(pwd) != $HOME ]; then
-		sudo mv ssh-files.zip $HOME/ssh-files.zip
-	fi
-	sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME/ssh-files.zip
-	sudo rm -r ssh-files/
-fi
+#if [ $MASTER == true ]; then
+#	mkdir -p ssh-files/etc
+#	sudo cp -r /etc/ssh ssh-files/etc/
+#	mkdir -p ssh-files/root/
+#	sudo cp -r /root/.ssh ssh-files/root/ 2> /dev/null
+#	mkdir -p ssh-files/user/
+#	sudo cp -r $HOME/.ssh ssh-files/user/
+#	sudo zip -FSr "ssh-files.zip" ssh-files
+#	if [ $(pwd) != $HOME ]; then
+#		sudo mv ssh-files.zip $HOME/ssh-files.zip
+#	fi
+#	sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME/ssh-files.zip
+#	sudo rm -r ssh-files/
+#fi
 */
 # Screens configuration
 cat > $HOME/personavars.txt << 'EOM'
