@@ -28,6 +28,6 @@ The configuration file (machine_list.dat) should be downloaded to the master com
 IMPORTANT: There should not be any empty lines in the machine_list.dat file and the master machine must be in the last line.
 
 ## Installation
-lg_install.sh has to be executed from the master computer, logged in as lg user. This script reads the machine info from the machine_list.dat file and for each machine, calls the main script - install.sh with the following three parameters - machine_ID, lg_frame, and total_machines.
+lg_install.sh has to be downloaded and executed from the master computer, logged in as lg user. This script reads the machine info from the machine_list.dat file and for each machine, calls the main script - install.sh with the following three parameters - machine_ID, lg_frame, and total_machines.
 
 The install process completes once the end of file has been reached.
