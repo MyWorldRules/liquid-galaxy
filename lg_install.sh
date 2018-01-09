@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script insalls liquid galaxy in multiple machines, listed in ~/machine_list.dat.
+#This script installs liquid galaxy in multiple machines, listed in ~/machine_list.dat.
 # Below are prerequisites -
 # 
 # To login to the remote machine, perform below - 
