@@ -13,22 +13,29 @@ https://github.com/LiquidGalaxyLAB/liquid-galaxy
 
 EOM
 if [ $# -ne 3 ]; then
-  echo "Usage: install.sh MACHINE_NAME MACHINE_ID MACHINE_FRAME"
+  echo "Usage: install.sh MACHINE_ID LG_FRAMES TOTAL_MACHINES"
   echo "Insufficient arguments...Abort!"
   echo ""
   exit 1
 fi
 # Parameters
-MASTER=false
+MACHINE_ID=$1
+LG_FRAMES=$2
+TOTAL_MACHINES=$3
+if [ $MACHINE_ID <> 1 ]; then
+	MASTER=false
+else
+	MASTER=true
+fi
 MASTER_IP=""
 MASTER_USER=$USER
 MASTER_HOME=$HOME
 MASTER_PASSWORD=""
 LOCAL_USER=$USER
-MACHINE_ID="1"
+#MACHINE_ID="1"
 MACHINE_NAME="lg"$MACHINE_ID
-TOTAL_MACHINES="3"
-LG_FRAMES="lg3 lg1 lg2"
+#TOTAL_MACHINES="3"
+#LG_FRAMES="lg3 lg1 lg2"
 OCTET="42"
 SCREEN_ORIENTATION="V"
 GIT_FOLDER_NAME="liquid-galaxy"
@@ -42,22 +49,21 @@ NETWORK_INTERFACE=$(/sbin/route -n | grep "^0.0.0.0" | rev | cut -d' ' -f1 | rev
 NETWORK_INTERFACE_MAC=$(ifconfig | grep $NETWORK_INTERFACE | awk '{print $5}')
 SSH_PASSPHRASE=""
 
-read -p "Machine id (i.e. 1 for lg1) (1 == master): " MACHINE_ID
+#read -p "Machine id (i.e. 1 for lg1) (1 == master): " MACHINE_ID
 if [ "$(echo $MACHINE_ID | cut -c-2)" == "lg" ]; then
 	MACHINE_ID="$(echo $MACHINE_NAME | cut -c3-)"
 fi
 MACHINE_NAME="lg"$MACHINE_ID
-if [ $MACHINE_ID == "1" ]; then
-	MASTER=true
-else
-	echo "Make sure Master machine (lg1) is connected to the network before proceding!"
-	read -p "Master machine IP (i.e. 192.168.1.42): " MASTER_IP
-	read -p "Master local user password (i.e. lg password): " MASTER_PASSWORD
-fi
-read -p "Total machines count (i.e. 3): " TOTAL_MACHINES
-read -p "LG frames (i.e. lg3 lg1 lg2): " LG_FRAMES
-read -p "Unique number that identifies your Galaxy (octet) (i.e. 42): " OCTET
-
+#if [ $MACHINE_ID == "1" ]; then
+#	MASTER=true
+#else
+#	echo "Make sure Master machine (lg1) is connected to the network before proceding!"
+#	read -p "Master machine IP (i.e. 192.168.1.42): " MASTER_IP
+#	read -p "Master local user password (i.e. lg password): " MASTER_PASSWORD
+#fi
+#read -p "Total machines count (i.e. 3): " TOTAL_MACHINES
+#read -p "LG frames (i.e. lg3 lg1 lg2): " LG_FRAMES
+#read -p "Unique number that identifies your Galaxy (octet) (i.e. 42): " OCTET
 #
 # Pre-start
 #
@@ -188,6 +194,7 @@ sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME
 sudo chown $LOCAL_USER:$LOCAL_USER /home/lg/earth/builds/latest/drivers.ini
 
 # Configure SSH
+/*
 if [ $MASTER == true ]; then
 	echo "Setting up SSH..."
 	$HOME/tools/clean-ssh.sh
@@ -223,7 +230,7 @@ if [ $MASTER == true ]; then
 	sudo chown -R $LOCAL_USER:$LOCAL_USER $HOME/ssh-files.zip
 	sudo rm -r ssh-files/
 fi
-
+*/
 # Screens configuration
 cat > $HOME/personavars.txt << 'EOM'
 DHCP_LG_FRAMES="lg3 lg1 lg2"
