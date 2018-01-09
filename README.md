@@ -18,9 +18,8 @@ lg    ALL=(ALL) NOPASSWD: ALL
 
 The configuration file(machine_list.dat) should be downloaded to the master computer, to its home directory and filled with below details - Machine IP address, machine_ID, lg_frame. This is the same format, as the example text already in said file. 
 
-<aside class="warning">
+
 IMPORTANT: There should not be any empty lines, and the master machine should be the last line.
-</aside>
 
 lg_install.sh has to be executed from the master computer, logged in as lg user. This script reads the machine info from the machine_list.dat file and for each machine, calls the main script - install.sh with the below 3 parameters - machine_ID, lg_frame, and total_machines.
 
