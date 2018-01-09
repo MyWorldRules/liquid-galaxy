@@ -49,12 +49,12 @@ sudo apt-get install curl
 
 if [ $MACHINE_ID == "1" ]; then
 #master, local install
-#bash <(curl -s https://raw.githubusercontent.com/LiquidGalaxyLAB/liquid-galaxy/master/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES)
-bash <(curl -s https://raw.githubusercontent.com/MyWorldRules/Liquid-Galaxy/master/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES)
+$HOME/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES
+#bash <(curl -s https://raw.githubusercontent.com/MyWorldRules/Liquid-Galaxy/master/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES)
 else
 #node-ssh to node and remote install
 	#ssh $MACHINE_NAME 'bash -s' < bash <(curl -s https://raw.githubusercontent.com/LiquidGalaxyLAB/liquid-galaxy/master/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES)
-ssh $MACHINE_NAME 'bash -s' < bash < (curl -s https://raw.githubusercontent.com/MyWorldRules/Liquid-Galaxy/master/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES)
+ssh $MACHINE_NAME 'bash -s' < $HOME/install.sh $MACHINE_ID $MACHINE_FRAME $TOTAL_MACHINES
 fi
 
 echo "completed install"
