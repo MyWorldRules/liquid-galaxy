@@ -98,8 +98,8 @@ NETWORK_MAC_ADDRESS: $NETWORK_INTERFACE_MAC
 
 Is it correct? Press any key to continue or CTRL-C to exit
 EOM
-read
-
+#read
+sleep 3
 if [ "$(cat /etc/os-release | grep NAME=\"Ubuntu\")" == "" ]; then
 	echo "Warning!! This script is meant to be run on an Ubuntu OS. It may not work as expected."
 	echo -n "Press any key to continue or CTRL-C to exit"
@@ -342,8 +342,9 @@ sudo apt-get install -y libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxe
 fi
 
 echo "Liquid Galaxy installation completed! :-)"
-echo "Press any key to reboot now"
-read
+echo "rebooting now..."
+sleep 4
+#read
 reboot
 
 exit 0
