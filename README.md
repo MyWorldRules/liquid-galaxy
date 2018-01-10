@@ -23,7 +23,9 @@ We will start the installation process from the master node, logged in as user c
   
 ## Configuration
 It is recommended to update the system so that the liquid galaxy installer can run quicker.
+
 ```sudo apt-get update```
+
 ```sudo apt-get upgrade```
 
 The 3 artifacts need to be downloaded from GitHub to the master node, user’s home directory.
