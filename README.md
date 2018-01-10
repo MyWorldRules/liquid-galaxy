@@ -30,7 +30,9 @@ It is recommended to update the system so that the liquid galaxy installer can r
 
 The 3 artifacts need to be downloaded from GitHub to the master node, user’s home directory.
 To grant execute privileges, do 
+
 ```chmod u+x install.sh```
+
 ```chmod u+x lg_install.sh```
 
 The configuration file (machine_list.dat) should be downloaded to the master computer, to its home directory and filled with below details - Machine IP address, machine_ID, lg_frame. This is the same format, as the example text already in said file. 
